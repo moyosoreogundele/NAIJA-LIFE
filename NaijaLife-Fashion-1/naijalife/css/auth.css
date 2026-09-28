@@ -1,0 +1,4 @@
+/* Auth-specific tweaks layered on style.css */
+.auth-form-col .field input:focus { box-shadow: 0 0 0 3px rgba(212,175,55,0.12); }
+.text-button { border:0; padding:0; background:none; color:var(--gold-light); cursor:pointer; font:inherit; }
+.text-button:hover { color:var(--cream); }

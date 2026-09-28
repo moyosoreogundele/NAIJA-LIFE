@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="assets/icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/icons/icon.svg">
+<meta name="theme-color" content="#111111">
+<title>Search — NaijaLife Fashion</title>
+<link rel="stylesheet" href="css/style.css">
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js" defer></script>
+</head>
+<body>
+
+<header class="site-header" id="site-header"></header>
+
+<section class="page-hero">
+  <div class="container">
+    <div class="breadcrumb"><a href="index.html">Home</a> <i data-lucide="chevron-right" style="width:14px;height:14px;"></i> <span>Search</span></div>
+    <h1 class="display-2" id="searchHeading">Search results</h1>
+    <p class="lede" id="searchCount" style="margin-top:8px;"></p>
+  </div>
+</section>
+
+<main class="container" style="padding:40px 24px 80px;">
+  <div class="product-grid" id="searchGrid"></div>
+</main>
+
+<footer class="site-footer" id="site-footer"></footer>
+<div class="bottom-nav" id="bottom-nav"></div>
+
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+<script src="js/search.js"></script>
+</body>
+</html>

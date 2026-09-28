@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="assets/icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/icons/icon.svg">
+<meta name="theme-color" content="#111111">
+<title>Checkout — NaijaLife Fashion</title>
+<link rel="stylesheet" href="css/style.css">
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js" defer></script>
+<style>
+  .checkout-layout { display: grid; grid-template-columns: 1fr 360px; gap: 40px; align-items: flex-start; }
+  .steps-row { display: flex; gap: 0; margin-bottom: 36px; }
+  .step-pill { flex: 1; text-align: center; padding-bottom: 14px; border-bottom: 2px solid var(--border); color: var(--gray-dim); font-size: 0.82rem; font-weight: 600; position: relative; }
+  .step-pill.active { color: var(--gold-light); border-color: var(--gold); }
+  .step-pill.done { color: var(--success); border-color: var(--success); }
+  .checkout-card { border: 1px solid var(--border); border-radius: var(--radius); padding: 28px; background: var(--surface); }
+  .method-option { display: flex; align-items: center; gap: 14px; padding: 16px; border: 1px solid var(--border-strong); border-radius: var(--radius-sm); margin-bottom: 12px; cursor: pointer; }
+  .method-option.active { border-color: var(--gold); background: rgba(212,175,55,.06); }
+  .method-option input { accent-color: var(--gold); }
+  .method-option .title { font-weight: 600; font-size: 0.92rem; }
+  .method-option .desc { font-size: 0.78rem; color: var(--gray); }
+  .checkout-nav { display: flex; justify-content: space-between; margin-top: 26px; }
+  .order-line { display: flex; justify-content: space-between; font-size: 0.85rem; color: var(--gray); margin-bottom: 10px; }
+  .conf-icon { width: 64px; height: 64px; border-radius: 50%; background: rgba(34,197,94,.14); color: var(--success); display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; }
+  .demo-banner { background: rgba(212,175,55,.08); border: 1px dashed var(--gold); border-radius: var(--radius-sm); padding: 14px 16px; font-size: 0.8rem; color: var(--gold-light); margin-bottom: 22px; }
+  @media (max-width: 900px) { .checkout-layout { grid-template-columns: 1fr; } .steps-row span.label { display:none; } }
+</style>
+</head>
+<body>
+
+<header class="site-header" id="site-header"></header>
+
+<section class="page-hero">
+  <div class="container">
+    <div class="breadcrumb"><a href="index.html">Home</a> <i data-lucide="chevron-right" style="width:14px;height:14px;"></i> <a href="cart.html">Cart</a> <i data-lucide="chevron-right" style="width:14px;height:14px;"></i> <span>Checkout</span></div>
+    <h1 class="display-2">Checkout</h1>
+  </div>
+</section>
+
+<main class="container" style="padding:40px 24px 80px;" id="checkoutMain"></main>
+
+<footer class="site-footer" id="site-footer"></footer>
+<div class="bottom-nav" id="bottom-nav"></div>
+
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+<script src="js/checkout.js"></script>
+</body>
+</html>

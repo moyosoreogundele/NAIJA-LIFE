@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="assets/icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/icons/icon.svg">
+<meta name="theme-color" content="#111111">
+<title>Your Cart — NaijaLife Fashion</title>
+<link rel="stylesheet" href="css/style.css">
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js" defer></script>
+<style>
+  .cart-layout { display: grid; grid-template-columns: 1fr 360px; gap: 40px; align-items: flex-start; }
+  .cart-item { display: grid; grid-template-columns: 90px 1fr auto; gap: 16px; padding: 20px 0; border-bottom: 1px solid var(--border); }
+  .cart-item img { width: 90px; height: 110px; object-fit: cover; border-radius: 10px; }
+  .cart-item h4 { font-size: 0.95rem; margin-bottom: 4px; }
+  .cart-item .meta { font-size: 0.8rem; color: var(--gray); margin-bottom: 10px; }
+  .cart-item-actions { display: flex; align-items: center; gap: 14px; }
+  .cart-item-remove { font-size: 0.8rem; color: var(--gray-dim); display: flex; align-items: center; gap: 4px; }
+  .cart-item-remove:hover { color: var(--danger); }
+  .cart-item-right { text-align: right; display: flex; flex-direction: column; align-items: flex-end; justify-content: space-between; }
+  .summary-box { border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; background: var(--surface); position: sticky; top: calc(var(--header-h) + 20px); }
+  .summary-row { display: flex; justify-content: space-between; font-size: 0.9rem; color: var(--gray); margin-bottom: 12px; }
+  .summary-row.total { color: var(--cream); font-weight: 700; font-size: 1.05rem; border-top: 1px solid var(--border); padding-top: 14px; margin-top: 4px; }
+  .promo-row { display: flex; gap: 8px; margin: 18px 0; }
+  .promo-row input { flex: 1; padding: 11px 14px; border-radius: 8px; border: 1px solid var(--border-strong); background: var(--black); color: var(--cream); font-size: 0.85rem; }
+  @media (max-width: 900px) { .cart-layout { grid-template-columns: 1fr; } .summary-box { position: static; } }
+</style>
+</head>
+<body>
+
+<header class="site-header" id="site-header"></header>
+
+<section class="page-hero">
+  <div class="container">
+    <div class="breadcrumb"><a href="index.html">Home</a> <i data-lucide="chevron-right" style="width:14px;height:14px;"></i> <span>Cart</span></div>
+    <h1 class="display-2">Your Cart</h1>
+  </div>
+</section>
+
+<main class="container" style="padding:40px 24px 80px;" id="cartMain"></main>
+
+<footer class="site-footer" id="site-footer"></footer>
+<div class="bottom-nav" id="bottom-nav"></div>
+
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+<script src="js/cart.js"></script>
+</body>
+</html>

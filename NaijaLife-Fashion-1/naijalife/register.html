@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="assets/icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/icons/icon.svg">
+<meta name="theme-color" content="#111111">
+<title>Create Account — NaijaLife Fashion</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/auth.css">
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js" defer></script>
+</head>
+<body>
+
+<header class="site-header" id="site-header"></header>
+
+<main class="auth-wrap">
+  <div class="auth-media">
+    <img src="assets/images/auth-register.svg" alt="">
+    <p class="quote">"Your style. Your Nigeria. Join a marketplace built for it."</p>
+  </div>
+  <div class="auth-form-col">
+    <div class="auth-box">
+      <h1 class="display-3">Create your account</h1>
+      <p class="sub">Join NaijaLife Fashion — it takes less than a minute.</p>
+
+      <form id="registerForm" novalidate>
+        <div class="field" id="nameField">
+          <label for="name">Full name</label>
+          <input type="text" id="name" placeholder="Ada Eze" required>
+          <div class="err-msg">Please enter your full name.</div>
+        </div>
+        <div class="field" id="regEmailField">
+          <label for="regEmail">Email address</label>
+          <input type="email" id="regEmail" placeholder="you@example.com" required>
+          <div class="err-msg">Please enter a valid email address.</div>
+        </div>
+        <div class="field" id="phoneField">
+          <label for="phone">Phone number</label>
+          <input type="tel" id="phone" placeholder="080 000 0000">
+        </div>
+        <div class="field" id="regPassField">
+          <label for="regPassword">Password</label>
+          <div class="pw-wrap">
+            <input type="password" id="regPassword" placeholder="At least 8 characters" required>
+            <button type="button" class="pw-toggle" id="regPwToggle"><i data-lucide="eye"></i></button>
+          </div>
+          <div class="err-msg">Password must be at least 8 characters.</div>
+        </div>
+        <div class="field" id="confirmField">
+          <label for="confirmPassword">Confirm password</label>
+          <input type="password" id="confirmPassword" placeholder="Re-enter password" required>
+          <div class="err-msg">Passwords do not match.</div>
+        </div>
+        <label class="checkbox-row" style="margin-bottom:22px;"><input type="checkbox" required> I agree to the Terms & Privacy Policy</label>
+        <button type="submit" class="btn btn-gold btn-block">Create Account</button>
+      </form>
+
+      <p class="auth-switch">Already have an account? <a href="login.html">Log in</a></p>
+    </div>
+  </div>
+</main>
+
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+<script src="js/auth.js"></script>
+</body>
+</html>

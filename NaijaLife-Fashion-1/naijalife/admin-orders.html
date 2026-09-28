@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="assets/icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/icons/icon.svg">
+<meta name="theme-color" content="#111111">
+<title>All Orders — NaijaLife Fashion</title>
+<link rel="stylesheet" href="css/style.css">
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js" defer></script>
+<style>
+  .admin-orders-wrap { max-width: 1000px; padding: 36px 24px 80px; }
+  .admin-access { max-width: 520px; border-bottom: 1px solid var(--border); padding-bottom: 24px; }
+  .admin-access p { margin: 10px 0 18px; }
+  .admin-access-row { display: flex; gap: 10px; }
+  .admin-access-row input { flex: 1; min-width: 0; }
+  .admin-message { min-height: 1.5em; margin-top: 10px !important; color: var(--coral); }
+  .admin-summary { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin: 28px 0 18px; }
+  .admin-summary p { margin-top: 5px; }
+  .admin-order { padding: 22px 0; border-top: 1px solid var(--border); }
+  .admin-order-head, .admin-order-meta { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; }
+  .admin-order-head h2 { font: 700 1rem var(--font-body); color: var(--cream); }
+  .admin-order-head time, .admin-muted { color: var(--gray); font-size: .84rem; }
+  .admin-order-meta { margin: 14px 0; }
+  .admin-order-meta strong { color: var(--cream); }
+  .admin-order-items { display: grid; gap: 8px; margin: 12px 0; }
+  .admin-order-items li { display: flex; justify-content: space-between; gap: 12px; color: var(--gray); }
+  .admin-address { color: var(--gray); font-size: .9rem; }
+  .admin-order-total { color: var(--gold-light); font-weight: 700; white-space: nowrap; }
+  @media (max-width: 600px) {
+    .admin-access-row, .admin-order-head, .admin-order-meta { flex-direction: column; }
+    .admin-access-row .btn { width: 100%; }
+    .admin-order-items li { align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+<header class="site-header" id="site-header"></header>
+<section class="page-hero">
+  <div class="container">
+    <div class="breadcrumb"><a href="index.html">Home</a> <i data-lucide="chevron-right" style="width:14px;height:14px;"></i> <span>Admin Orders</span></div>
+    <h1 class="display-2">All Orders</h1>
+  </div>
+</section>
+<main class="container admin-orders-wrap" id="adminOrders">
+  <form class="admin-access" id="adminLoginForm">
+    <label for="adminPassword">Admin password</label>
+    <p>Enter the server admin password to view orders across all customers.</p>
+    <div class="admin-access-row">
+      <input type="password" id="adminPassword" autocomplete="current-password" required>
+      <button class="btn btn-gold" type="submit">View orders</button>
+    </div>
+    <p class="admin-message" id="adminMessage" role="status" aria-live="polite"></p>
+  </form>
+  <section id="ordersPanel" hidden>
+    <div class="admin-summary">
+      <div><h2 class="display-3">Recent orders</h2><p id="ordersSummary"></p></div>
+      <div class="flex" style="gap:8px;">
+        <button type="button" class="btn btn-outline" id="refreshOrdersBtn">Refresh</button>
+        <button type="button" class="btn btn-outline" id="adminLogoutBtn">Lock</button>
+      </div>
+    </div>
+    <div id="ordersList" aria-live="polite"></div>
+  </section>
+</main>
+<footer class="site-footer" id="site-footer"></footer>
+<div class="bottom-nav" id="bottom-nav"></div>
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+<script src="js/admin-orders.js"></script>
+</body>
+</html>

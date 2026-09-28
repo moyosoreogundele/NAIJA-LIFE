@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="manifest" href="../manifest.webmanifest">
+<link rel="icon" href="../assets/icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/icons/icon.svg">
+<meta name="theme-color" content="#111111">
+<title>Men — NaijaLife Fashion</title>
+<meta name="description" content="Shop men's fashion from Nigerian designers and independent sellers.">
+<link rel="stylesheet" href="../css/style.css">
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js" defer></script>
+<style>
+  .cat-toolbar { display:flex; justify-content:space-between; align-items:center; margin-bottom:22px; flex-wrap:wrap; gap:14px; }
+  .cat-toolbar select { padding:10px 14px; border-radius:var(--radius-sm); background:var(--surface); border:1px solid var(--border-strong); color:var(--cream); font-size:0.85rem; }
+</style>
+</head>
+<body data-nav="men" data-mode="category" data-value="Men">
+
+<header class="site-header" id="site-header"></header>
+
+<section class="page-hero">
+  <div class="container">
+    <div class="breadcrumb"><a href="../index.html">Home</a> <i data-lucide="chevron-right" style="width:14px;height:14px;"></i> <a href="../shop.html">Shop</a> <i data-lucide="chevron-right" style="width:14px;height:14px;"></i> <span>Men</span></div>
+    <h1 class="display-2">Men</h1>
+    <p class="lede" style="margin-top:10px;">Tailoring, native wear and streetwear for men.</p>
+  </div>
+</section>
+
+<main class="container" style="padding:40px 24px 80px;">
+  <div class="cat-toolbar">
+    <span class="result-count" id="catCount"></span>
+    <select id="catSort">
+      <option value="featured">Featured</option>
+      <option value="newest">Newest</option>
+      <option value="price-asc">Price: Low to High</option>
+      <option value="price-desc">Price: High to Low</option>
+      <option value="rating">Highest Rated</option>
+    </select>
+  </div>
+  <div class="product-grid" id="catGrid"></div>
+</main>
+
+<footer class="site-footer" id="site-footer"></footer>
+<div class="bottom-nav" id="bottom-nav"></div>
+
+<script src="../js/data.js"></script>
+<script src="../js/app.js"></script>
+<script src="../js/category.js"></script>
+</body>
+</html>

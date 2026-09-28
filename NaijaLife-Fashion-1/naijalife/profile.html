@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#111111">
+<title>My Account — NaijaLife Fashion</title>
+<link rel="stylesheet" href="css/style.css">
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js" defer></script>
+<style>
+  .profile-layout { display: grid; grid-template-columns: 240px 1fr; gap: 32px; align-items: flex-start; }
+  .profile-nav { border: 1px solid var(--border); border-radius: var(--radius); padding: 12px; background: var(--surface); position: sticky; top: calc(var(--header-h) + 20px); }
+  .profile-nav button { display: flex; align-items: center; gap: 10px; width: 100%; padding: 12px 14px; border-radius: var(--radius-sm); font-size: 0.88rem; color: var(--gray); text-align: left; background: transparent; border: none; margin-bottom: 4px; }
+  .profile-nav button.active, .profile-nav button:hover { background: var(--surface-light); color: var(--cream); }
+  .profile-nav button.logout { color: var(--danger); margin-top: 8px; }
+  .profile-card { border: 1px solid var(--border); border-radius: var(--radius); padding: 28px; background: var(--surface); }
+  .avatar-row { display: flex; align-items: center; gap: 16px; margin-bottom: 26px; }
+  .avatar-circle { width: 64px; height: 64px; border-radius: 50%; background: var(--gold); color: var(--black); display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-size: 1.5rem; font-weight: 600; }
+  .addr-card { border: 1px solid var(--border-strong); border-radius: var(--radius-sm); padding: 16px; margin-bottom: 12px; font-size: 0.85rem; color: var(--gray); }
+  .addr-card strong { color: var(--cream); display: block; margin-bottom: 4px; }
+  .notif-item { display: flex; gap: 12px; padding: 14px 0; border-bottom: 1px solid var(--border); font-size: 0.86rem; color: var(--gray); }
+  .notif-item svg { width: 18px; height: 18px; color: var(--gold-light); flex-shrink: 0; margin-top: 2px; }
+  @media (max-width: 900px) { .profile-layout { grid-template-columns: 1fr; } .profile-nav { position: static; display: flex; overflow-x: auto; gap: 6px; } .profile-nav button { white-space: nowrap; margin-bottom: 0; } }
+</style>
+</head>
+<body>
+
+<header class="site-header" id="site-header"></header>
+
+<main class="container" style="padding:40px 24px 80px;" id="profileRoot"></main>
+
+<footer class="site-footer" id="site-footer"></footer>
+<div class="bottom-nav" id="bottom-nav"></div>
+
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+<script src="js/profile.js"></script>
+</body>
+</html>

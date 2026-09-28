@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#111111">
+<title>Your Orders — NaijaLife Fashion</title>
+<link rel="stylesheet" href="css/style.css">
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js" defer></script>
+<style>
+  .order-card { border: 1px solid var(--border); border-radius: var(--radius); padding: 22px; margin-bottom: 20px; background: var(--surface); }
+  .order-top { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; margin-bottom: 16px; padding-bottom: 16px; border-bottom: 1px solid var(--border); }
+  .order-top .num { font-weight: 700; color: var(--cream); }
+  .order-top .date { font-size: 0.8rem; color: var(--gray); }
+  .status-pill { font-size: 0.75rem; font-weight: 700; padding: 5px 12px; border-radius: 999px; background: rgba(212,175,55,.12); color: var(--gold-light); }
+  .order-items-mini { display: flex; gap: 10px; margin-bottom: 16px; }
+  .order-items-mini img { width: 52px; height: 64px; object-fit: cover; border-radius: 8px; }
+  .timeline { display: flex; justify-content: space-between; position: relative; margin: 24px 0 8px; }
+  .timeline::before { content: ''; position: absolute; top: 9px; left: 0; right: 0; height: 2px; background: var(--border); }
+  .tl-step { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; flex: 1; }
+  .tl-dot { width: 20px; height: 20px; border-radius: 50%; background: var(--surface-light); border: 2px solid var(--border-strong); display: flex; align-items: center; justify-content: center; }
+  .tl-dot.done { background: var(--gold); border-color: var(--gold); }
+  .tl-label { font-size: 0.68rem; color: var(--gray-dim); margin-top: 8px; text-align: center; max-width: 70px; }
+  .tl-label.done { color: var(--gold-light); }
+</style>
+</head>
+<body>
+
+<header class="site-header" id="site-header"></header>
+
+<section class="page-hero">
+  <div class="container">
+    <div class="breadcrumb"><a href="index.html">Home</a> <i data-lucide="chevron-right" style="width:14px;height:14px;"></i> <span>Orders</span></div>
+    <h1 class="display-2">Your Orders</h1>
+  </div>
+</section>
+
+<main class="container" style="padding:40px 24px 80px; max-width:820px;" id="ordersMain"></main>
+
+<footer class="site-footer" id="site-footer"></footer>
+<div class="bottom-nav" id="bottom-nav"></div>
+
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+<script src="js/orders.js"></script>
+</body>
+</html>

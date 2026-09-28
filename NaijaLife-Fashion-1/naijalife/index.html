@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="assets/icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/icons/icon.svg">
+<meta name="theme-color" content="#111111">
+<title>NaijaLife Fashion — Your Style. Your Nigeria.</title>
+<meta name="description" content="Shop Nigerian fashion from independent designers and sellers — agbada, ankara, aso-ebi, streetwear, shoes and accessories.">
+<meta property="og:title" content="NaijaLife Fashion">
+<meta property="og:description" content="Your Style. Your Nigeria.">
+<link rel="stylesheet" href="css/style.css">
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js" defer></script>
+</head>
+<body>
+
+<header class="site-header" id="site-header"></header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero" style="padding:0;">
+    <div class="hero-media">
+      <img src="assets/images/hero.svg" alt="Nigerian fashion editorial">
+    </div>
+    <div class="container hero-content">
+      <span class="hero-eyebrow">Nigerian fashion, selected daily</span>
+      <h1 class="display-1">Wear the <br>culture forward.</h1>
+      <p class="lede">Shop modern Nigerian fashion, from Yoruba agbada and aso-oke to Ankara, streetwear, accessories and everyday essentials.</p>
+      <div class="hero-ctas">
+        <a href="shop.html" class="btn btn-gold">Browse the edit</a>
+        <a href="designers.html" class="btn btn-outline">Meet the makers</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CATEGORIES -->
+  <section class="container">
+    <div class="section-head">
+      <h2 class="display-3">Find your next look</h2>
+    </div>
+    <div class="cat-grid" id="categoryGrid"></div>
+  </section>
+
+  <!-- TRENDING -->
+  <section class="container">
+    <div class="section-head">
+      <h2 class="display-3">Popular this week</h2>
+      <a href="shop.html?sort=popular" class="view-all">View all <i data-lucide="arrow-right"></i></a>
+    </div>
+    <div class="product-grid" id="trendingGrid"></div>
+  </section>
+
+  <!-- NEW ARRIVALS -->
+  <section class="container" style="border-top:1px solid var(--border);">
+    <div class="section-head">
+      <h2 class="display-3">Just landed</h2>
+      <a href="shop.html?sort=newest" class="view-all">View all <i data-lucide="arrow-right"></i></a>
+    </div>
+    <div class="product-grid" id="newGrid"></div>
+  </section>
+
+  <!-- NATIVE COLLECTION -->
+  <section style="background:var(--surface); border-top:1px solid var(--border); border-bottom:1px solid var(--border);">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <span class="hero-eyebrow" style="font-size:0.72rem;">Made for the occasion</span>
+          <h2 class="display-3">Native, reworked</h2>
+        </div>
+        <a href="pages/native-wear.html" class="view-all">Shop native wear <i data-lucide="arrow-right"></i></a>
+      </div>
+      <div class="product-grid" id="nativeGrid"></div>
+    </div>
+  </section>
+
+  <!-- DESIGNERS -->
+  <section class="container">
+    <div class="section-head">
+      <h2 class="display-3">The people behind the pieces</h2>
+      <a href="designers.html" class="view-all">All designers <i data-lucide="arrow-right"></i></a>
+    </div>
+    <div class="designer-grid" id="designerGrid"></div>
+  </section>
+
+  <!-- STREETWEAR -->
+  <section class="container" style="border-top:1px solid var(--border);">
+    <div class="section-head">
+      <div>
+        <span class="hero-eyebrow" style="font-size:0.72rem;">Everyday rotation</span>
+        <h2 class="display-3">Streetwear with a point of view</h2>
+      </div>
+      <a href="pages/streetwear.html" class="view-all">Shop streetwear <i data-lucide="arrow-right"></i></a>
+    </div>
+    <div class="product-grid" id="streetGrid"></div>
+  </section>
+
+  <!-- BEST SELLERS -->
+  <section class="container" style="border-top:1px solid var(--border);">
+    <div class="section-head">
+      <h2 class="display-3">What people are buying</h2>
+      <a href="shop.html?sort=popular" class="view-all">View all <i data-lucide="arrow-right"></i></a>
+    </div>
+    <div class="product-grid" id="bestGrid"></div>
+  </section>
+
+  <!-- EDITORIAL -->
+  <section class="container" style="border-top:1px solid var(--border);">
+    <div class="section-head">
+      <div>
+        <span class="hero-eyebrow" style="font-size:0.72rem;">Style notes</span>
+        <h2 class="display-3">Looks for the moments</h2>
+      </div>
+    </div>
+    <div class="editorial-grid">
+      <div class="editorial-card"><img src="assets/images/editorial-aso-ebi.svg" alt="Editorial look"><span class="tag">The Aso-Ebi Edit</span></div>
+      <div class="editorial-card"><img src="assets/images/editorial-agbada.svg" alt="Editorial look"><span class="tag">Groom's Agbada</span></div>
+      <div class="editorial-card"><img src="assets/images/editorial-streetwear.svg" alt="Editorial look"><span class="tag">Street x Ankara</span></div>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <section class="newsletter">
+    <div class="container" style="max-width:600px;">
+      <h2 class="display-3">New drops, straight to your inbox.</h2>
+      <p>Get first access to new arrivals, designer drops and limited native-wear edits.</p>
+      <form class="newsletter-form" id="newsletterForm">
+        <input type="email" placeholder="Email address" required id="newsletterEmail">
+        <button class="btn btn-gold" type="submit">Subscribe</button>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer" id="site-footer"></footer>
+<div class="bottom-nav" id="bottom-nav"></div>
+
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+<script>
+  renderHeader("home");
+  renderFooter();
+
+  document.getElementById("categoryGrid").innerHTML = CATEGORIES.map(c => `
+    <a class="cat-card" href="pages/${c.slug}.html">
+      <img src="${c.cover}" alt="${c.name}" loading="lazy">
+      <span>${c.name}</span>
+    </a>`).join("");
+
+  document.getElementById("trendingGrid").innerHTML = PRODUCTS.filter(p => p.featured).slice(0, 4).map(productCardHTML).join("");
+  document.getElementById("newGrid").innerHTML = PRODUCTS.filter(p => p.newArrival).slice(0, 4).map(productCardHTML).join("");
+  document.getElementById("nativeGrid").innerHTML = PRODUCTS.filter(p => p.category === "Native Wear").slice(0, 4).map(productCardHTML).join("");
+  document.getElementById("streetGrid").innerHTML = PRODUCTS.filter(p => p.category === "Streetwear").slice(0, 4).map(productCardHTML).join("");
+  document.getElementById("bestGrid").innerHTML = PRODUCTS.filter(p => p.bestseller).slice(0, 4).map(productCardHTML).join("");
+
+  document.getElementById("designerGrid").innerHTML = DESIGNERS.slice(0, 3).map(d => `
+    <a class="designer-card" href="designer.html?id=${d.id}">
+      <div class="designer-cover">
+        <img src="${d.cover}" alt="${d.name} cover" loading="lazy">
+        <img class="designer-avatar" src="${d.logo}" alt="${d.name} logo">
+      </div>
+      <div class="designer-body">
+        <h4>${d.name} ${d.verified ? '<i data-lucide="badge-check" class="verified-tick"></i>' : ""}</h4>
+        <div class="loc"><i data-lucide="map-pin" style="width:12px;height:12px;display:inline;vertical-align:-2px;"></i> ${d.location} · ${d.rating} rating</div>
+        <p class="bio">${d.bio}</p>
+      </div>
+    </a>`).join("");
+
+  mountIcons();
+
+  document.getElementById("newsletterForm").addEventListener("submit", e => {
+    e.preventDefault();
+    toast("Subscribed! Welcome to NaijaLife.", "success");
+    e.target.reset();
+  });
+</script>
+</body>
+</html>

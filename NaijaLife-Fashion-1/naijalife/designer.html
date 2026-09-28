@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="assets/icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/icons/icon.svg">
+<meta name="theme-color" content="#111111">
+<title id="pageTitle">Designer — NaijaLife Fashion</title>
+<link rel="stylesheet" href="css/style.css">
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js" defer></script>
+<style>
+  .designer-hero { position: relative; height: 320px; }
+  .designer-hero img { width: 100%; height: 100%; object-fit: cover; }
+  .designer-hero::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(8,8,8,.1), rgba(8,8,8,.95)); }
+  .designer-hero-body { position: absolute; bottom: -50px; left: 0; right: 0; }
+  .d-avatar { width: 100px; height: 100px; border-radius: 50%; border: 4px solid var(--black); object-fit: cover; }
+  .d-info-row { display: flex; align-items: flex-end; gap: 20px; }
+  .d-stats { display: flex; gap: 28px; margin: 76px 0 40px; flex-wrap: wrap; }
+  .d-stat strong { display: block; font-family: var(--font-display); font-size: 1.5rem; color: var(--cream); }
+  .d-stat span { font-size: 0.78rem; color: var(--gray-dim); }
+</style>
+</head>
+<body>
+
+<header class="site-header" id="site-header"></header>
+
+<div id="designerRoot"></div>
+
+<footer class="site-footer" id="site-footer"></footer>
+<div class="bottom-nav" id="bottom-nav"></div>
+
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+<script>
+  renderHeader("designers");
+  renderFooter();
+  const did = +new URLSearchParams(location.search).get("id");
+  const designer = DESIGNERS.find(d => d.id === did);
+  const root = document.getElementById("designerRoot");
+
+  if (!designer) {
+    root.innerHTML = `<div class="container">${emptyStateHTML({ icon: "user-x", title: "Designer not found", msg: "This designer profile doesn't exist.", cta: "Browse Designers", ctaHref: "designers.html" })}</div>`;
+  } else {
+    document.title = `${designer.name} — NaijaLife Fashion`;
+    const products = PRODUCTS.filter(p => p.sellerId === designer.id);
+    root.innerHTML = `
+      <section class="designer-hero">
+        <img src="${designer.cover}" alt="${designer.name}">
+        <div class="container designer-hero-body">
+          <div class="d-info-row">
+            <img class="d-avatar" src="${designer.logo}" alt="${designer.name}">
+            <div style="padding-bottom:8px;">
+              <h1 class="display-3" style="color:var(--white); display:flex; align-items:center; gap:8px;">${designer.name} ${designer.verified ? '<i data-lucide="badge-check" class="verified-tick"></i>' : ""}</h1>
+              <p style="color:var(--gray);">${designer.location}</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div class="container">
+        <div class="d-stats">
+          <div class="d-stat"><strong>${products.length}</strong><span>Products</span></div>
+          <div class="d-stat"><strong>${designer.rating}</strong><span>Rating</span></div>
+          <div class="d-stat"><strong>${designer.verified ? "Verified" : "Unverified"}</strong><span>Seller status</span></div>
+        </div>
+        <p class="lede" style="max-width:60ch; margin-bottom:40px;">${designer.bio}</p>
+        <div class="section-head"><h2 class="display-3">Products by ${designer.name}</h2></div>
+        <div class="product-grid" id="designerProducts"></div>
+      </div>
+    `;
+    renderProductGrid(document.getElementById("designerProducts"), products);
+  }
+  mountIcons();
+</script>
+</body>
+</html>

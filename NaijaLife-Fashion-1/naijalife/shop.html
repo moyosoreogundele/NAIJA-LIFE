@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="assets/icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/icons/icon.svg">
+<meta name="theme-color" content="#111111">
+<title>Shop All Fashion — NaijaLife Fashion</title>
+<meta name="description" content="Browse the full NaijaLife Fashion catalogue with filters for category, price, size, colour and more.">
+<link rel="stylesheet" href="css/style.css">
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js" defer></script>
+<style>
+  .shop-layout { display: grid; grid-template-columns: 260px 1fr; gap: 36px; align-items: flex-start; }
+  .filters-panel { position: sticky; top: calc(var(--header-h) + 20px); border: 1px solid var(--border); border-radius: var(--radius); padding: 22px; background: var(--surface); }
+  .filter-group { border-bottom: 1px solid var(--border); padding-bottom: 18px; margin-bottom: 18px; }
+  .filter-group:last-child { border: none; margin: 0; padding: 0; }
+  .filter-group h4 { font-size: 0.85rem; font-weight: 700; color: var(--cream); margin-bottom: 12px; }
+  .filter-option { display: flex; align-items: center; gap: 9px; font-size: 0.86rem; color: var(--gray); margin-bottom: 10px; cursor: pointer; }
+  .filter-option input { accent-color: var(--gold); }
+  .swatch-row { display: flex; flex-wrap: wrap; gap: 8px; }
+  .swatch { padding: 6px 12px; border-radius: 999px; border: 1px solid var(--border-strong); font-size: 0.78rem; color: var(--gray); }
+  .swatch.active { border-color: var(--gold); color: var(--gold-light); background: rgba(212,175,55,0.1); }
+  .toolbar { display: flex; align-items: center; justify-content: space-between; margin-bottom: 22px; gap: 16px; flex-wrap: wrap; }
+  .toolbar select { padding: 10px 14px; border-radius: var(--radius-sm); background: var(--surface); border: 1px solid var(--border-strong); color: var(--cream); font-size: 0.85rem; }
+  .result-count { font-size: 0.85rem; color: var(--gray); }
+  .filter-drawer-btn { display: none; }
+  .price-inputs { display: flex; gap: 8px; align-items: center; }
+  .price-inputs input { width: 100%; padding: 9px 10px; border-radius: 8px; border: 1px solid var(--border-strong); background: var(--black); color: var(--cream); font-size: 0.82rem; }
+  @media (max-width: 900px) {
+    .shop-layout { grid-template-columns: 1fr; }
+    .filters-panel { display: none; }
+    .filters-panel.drawer-open {
+      display: block; position: fixed; inset: 0; z-index: 950; border-radius: 0;
+      overflow-y: auto; top: 0; padding: 24px; padding-bottom: 100px;
+    }
+    .filter-drawer-btn { display: inline-flex; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header" id="site-header"></header>
+
+<section class="page-hero">
+  <div class="container">
+    <div class="breadcrumb"><a href="index.html">Home</a> <i data-lucide="chevron-right" style="width:14px;height:14px;"></i> <span>Shop</span></div>
+    <h1 class="display-2">The full fashion edit</h1>
+  </div>
+</section>
+
+<main class="container" style="padding:40px 24px 80px;">
+  <div class="shop-layout">
+
+    <aside class="filters-panel" id="filtersPanel">
+      <div class="flex justify-between items-center" style="margin-bottom:16px;">
+        <strong style="font-size:0.95rem;">Filters</strong>
+        <button class="btn-icon" id="closeFilters" style="display:none;">${''}<i data-lucide="x"></i></button>
+      </div>
+
+      <div class="filter-group">
+        <h4>Category</h4>
+        <div id="categoryFilters"></div>
+      </div>
+      <div class="filter-group">
+        <h4>Price range (₦)</h4>
+        <div class="price-inputs">
+          <input type="number" id="minPrice" placeholder="Min">
+          <span style="color:var(--gray-dim);">–</span>
+          <input type="number" id="maxPrice" placeholder="Max">
+        </div>
+      </div>
+      <div class="filter-group">
+        <h4>Size</h4>
+        <div class="swatch-row" id="sizeFilters"></div>
+      </div>
+      <div class="filter-group">
+        <h4>Seller</h4>
+        <div id="sellerFilters"></div>
+      </div>
+      <div class="filter-group">
+        <h4>Rating</h4>
+        <label class="filter-option"><input type="radio" name="rating" value="0" checked> Any rating</label>
+        <label class="filter-option"><input type="radio" name="rating" value="4.5"> 4.5 & up</label>
+        <label class="filter-option"><input type="radio" name="rating" value="4"> 4.0 & up</label>
+      </div>
+      <div class="filter-group">
+        <label class="filter-option"><input type="checkbox" id="saleOnly"> On sale only</label>
+      </div>
+      <button class="btn btn-outline btn-block" id="clearFiltersBtn">Clear all filters</button>
+    </aside>
+
+    <div>
+      <div class="toolbar">
+        <span class="result-count" id="resultCount"></span>
+        <div class="flex gap-8 items-center">
+          <button class="btn btn-outline btn-sm filter-drawer-btn" id="openFilters"><i data-lucide="sliders-horizontal" style="width:15px;height:15px;"></i> Filters</button>
+          <select id="sortSelect">
+            <option value="featured">Featured</option>
+            <option value="newest">Newest</option>
+            <option value="price-asc">Price: Low to High</option>
+            <option value="price-desc">Price: High to Low</option>
+            <option value="rating">Highest Rated</option>
+            <option value="popular">Most Popular</option>
+          </select>
+        </div>
+      </div>
+      <div class="product-grid" id="shopGrid"></div>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer" id="site-footer"></footer>
+<div class="bottom-nav" id="bottom-nav"></div>
+
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+<script src="js/filters.js"></script>
+</body>
+</html>
